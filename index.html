@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rerinucam Yummy</title>
+    <!-- Font Awesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f1ebd9;
+            /* Warna background beige sesuai gambar */
+            color: #5c4033;
+            /* Warna teks coklat */
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            /* Ukuran tampilan mobile */
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* --- Tampilan Menu Utama --- */
+        #main-view,
+        #gallery-view {
+            transition: opacity 0.3s ease;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #7a6053;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            background-color: transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .link-btn i {
+            position: absolute;
+            left: 25px;
+            font-size: 20px;
+        }
+
+        /* Warna spesifik tombol */
+        .btn-wa {
+            border: 2px solid #25D366;
+            color: #25D366;
+        }
+
+        .btn-wa:hover {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .btn-ig {
+            border: 2px solid #E1306C;
+            color: #E1306C;
+        }
+
+        .btn-ig:hover {
+            background-color: #E1306C;
+            color: white;
+        }
+
+        .btn-gallery {
+            border: 2px solid #5c4033;
+            color: #5c4033;
+        }
+
+        .btn-gallery:hover {
+            background-color: #5c4033;
+            color: white;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* --- Tampilan Galeri Foto --- */
+        .back-btn {
+            background: none;
+            border: none;
+            color: #5c4033;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .slider-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 15px;
+            padding-bottom: 15px;
+            scrollbar-width: thin;
+        }
+
+        /* Styling scrollbar untuk browser Chrome/Safari */
+        .slider-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .slider-container::-webkit-scrollbar-thumb {
+            background-color: #5c4033;
+            border-radius: 10px;
+        }
+
+        .slide {
+            min-width: 100%;
+            scroll-snap-align: center;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .swipe-hint {
+            font-size: 12px;
+            color: #7a6053;
+            margin-top: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.6;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- ================= BAGIAN MENU UTAMA ================= -->
+        <div id="main-view">
+            <!-- Ganti 'logo.png' dengan nama file logomu -->
+            <img src="foto.jpeg" alt="Rerinucam Yummy" class="profile-img">
+
+            <h1 class="title">Rerinucam Yummy</h1>
+            <p class="subtitle">Camilan Enak & Nagih!<br>Klik link di bawah untuk memesan:</p>
+
+            <div class="links-container">
+                <!-- Link Whatsapp -->
+                <a href="https://wa.me/message/V4UCVY2U3O4QL1" class="link-btn btn-wa">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Whatsapp Order</span>
+                </a>
+
+                <!-- Link Instagram -->
+                <a href="https://www.instagram.com/rerinucam_yummy?igsh=ajBxNW96YnY0NHl2" class="link-btn btn-ig">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+
+                <!-- Tombol Menu Baru (Katalog Foto) -->
+                <button onclick="toggleView()" class="link-btn btn-gallery">
+                    <i class="fas fa-images"></i>
+                    <span>Daftar Menu</span>
+                </button>
+            </div>
+
+            <div class="footer">
+                &copy; 2026 Rerinucam Yummy
+            </div>
+        </div>
+
+        <!-- ================= BAGIAN GALERI FOTO ================= -->
+        <div id="gallery-view" class="hidden">
+            <button onclick="toggleView()" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </button>
+
+            <h2 class="title" style="margin-bottom: 20px;">Daftar Menu</h2>
+
+            <div class="slider-container">
+                <!-- Ganti src="..." dengan file foto produk kamu -->
+                <div class="slide"><img src="menu 1.jpeg"
+                        alt="Produk 1"></div>
+                <div class="slide"><img src="menu 2.jpeg"
+                        alt="Produk 2"></div>
+                <div class="slide"><img src="menu 3.jpeg"
+                        alt="Produk 3"></div>
+            </div>
+            <p class="swipe-hint">Geser ke kiri/kanan untuk melihat foto <i class="fas fa-arrows-alt-h"></i></p>
+        </div>
+    </div>
+
+    <!-- Script untuk pindah halaman -->
+    <script>
+        function toggleView() {
+            const mainView = document.getElementById('main-view');
+            const galleryView = document.getElementById('gallery-view');
+
+            if (mainView.classList.contains('hidden')) {
+                // Tampilkan Menu Utama
+                mainView.classList.remove('hidden');
+                galleryView.classList.add('hidden');
+            } else {
+                // Tampilkan Galeri
+                mainView.classList.add('hidden');
+                galleryView.classList.remove('hidden');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
